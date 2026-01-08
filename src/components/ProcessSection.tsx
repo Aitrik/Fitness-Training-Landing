@@ -52,15 +52,7 @@ const ProcessSection: React.FC = () => {
               {processData.technology.description}
             </p>
 
-            {/* Decorative element */}
-            <div className="mt-8 relative h-40 rounded-xl overflow-hidden border border-border/50">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent" />
-              <div className="grid grid-cols-4 gap-1 p-4 h-full opacity-30">
-                {[...Array(12)].map((_, i) => (
-                  <div key={i} className="bg-primary/20 rounded-sm animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
-                ))}
-              </div>
-            </div>
+           
           </motion.div>
         </div>
 

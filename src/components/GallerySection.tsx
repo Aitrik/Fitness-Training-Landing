@@ -47,9 +47,9 @@ const GallerySection: React.FC = () => {
                 {/* Row 1 - Scroll Left */}
                 <div className="flex overflow-hidden group gap-8 select-none">
                     <div className="flex flex-shrink-0 animate-marquee gap-8 items-center min-w-full">
-                        {[...galleryData.row1, ...galleryData.row1, ...galleryData.row1, ...galleryData.row1].map((image, index) => (
+                        {[...galleryData.imagesRow1, ...galleryData.imagesRow1, ...galleryData.imagesRow1, ...galleryData.imagesRow1].map((image, index) => (
                             <div
-                                key={`row1-${index}`}
+                                key={`imagesRow1-${index}`}
                                 className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden cursor-pointer"
                             >
                                 <img
@@ -63,9 +63,9 @@ const GallerySection: React.FC = () => {
                         ))}
                     </div>
                     <div className="flex flex-shrink-0 animate-marquee gap-8 items-center min-w-full" aria-hidden="true">
-                        {[...galleryData.row1, ...galleryData.row1, ...galleryData.row1, ...galleryData.row1].map((image, index) => (
+                        {[...galleryData.imagesRow1, ...galleryData.imagesRow1, ...galleryData.imagesRow1, ...galleryData.imagesRow1].map((image, index) => (
                             <div
-                                key={`row1-clone-${index}`}
+                                key={`imagesRow1-clone-${index}`}
                                 className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden cursor-pointer"
                             >
                                 <img
@@ -83,9 +83,9 @@ const GallerySection: React.FC = () => {
                 {/* Row 2 - Scroll Right */}
                 <div className="flex overflow-hidden group gap-8 select-none">
                     <div className="flex flex-shrink-0 animate-marquee-reverse gap-8 items-center min-w-full">
-                        {[...galleryData.row2, ...galleryData.row2, ...galleryData.row2, ...galleryData.row2].map((image, index) => (
+                        {[...galleryData.imagesRow2, ...galleryData.imagesRow2, ...galleryData.imagesRow2, ...galleryData.imagesRow2].map((image, index) => (
                             <div
-                                key={`row2-${index}`}
+                                key={`imagesRow2-${index}`}
                                 className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden cursor-pointer"
                             >
                                 <img
@@ -99,9 +99,9 @@ const GallerySection: React.FC = () => {
                         ))}
                     </div>
                     <div className="flex flex-shrink-0 animate-marquee-reverse gap-8 items-center min-w-full" aria-hidden="true">
-                        {[...galleryData.row2, ...galleryData.row2, ...galleryData.row2, ...galleryData.row2].map((image, index) => (
+                        {[...galleryData.imagesRow2, ...galleryData.imagesRow2, ...galleryData.imagesRow2, ...galleryData.imagesRow2].map((image, index) => (
                             <div
-                                key={`row2-clone-${index}`}
+                                key={`imagesRow2-clone-${index}`}
                                 className="relative w-[400px] h-[300px] flex-shrink-0 rounded-3xl overflow-hidden cursor-pointer"
                             >
                                 <img

@@ -89,7 +89,7 @@ const PillarsSection: React.FC = () => {
         </div>
 
         {/* Extra Services List */}
-        <div className="max-w-4xl mx-auto mt-20">
+        {/* <div className="max-w-4xl mx-auto mt-20">
           <div className="bg-card/30 backdrop-blur-md border border-border rounded-2xl p-8 text-center">
             <h3 className="font-display text-2xl mb-6">ADDITIONAL SERVICES</h3>
             <div className="flex flex-wrap justify-center gap-4">
@@ -100,7 +100,7 @@ const PillarsSection: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
