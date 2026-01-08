@@ -1,40 +1,74 @@
-import { TrendingUp, ShieldCheck, GraduationCap, Target } from 'lucide-react';
+import { Target, Users, Heart, Zap, Award, Globe } from 'lucide-react';
 
 export const missionData = {
     about: {
         label: "About Us",
-        title: {
-            prefix: "I help athletes turn raw effort into",
-            highlight: "real results",
-            suffix: "— through structured training."
-        },
-        description: "For over two decades, I've worked with athletes at different levels — from those just finding their rhythm to seasoned pros looking to refine their edge. My approach combines cutting-edge science with practical, battle-tested methods.",
-        image: "/assets/coaching-session.jpg",
-        cta: "Read More"
+        title: "WE ARE A MULTI HEALTH CULTURE PLATFORM",
+        description: "That offers a systematic and healthy lifestyle through long term know-how and professional experience. Our goal is to provide our clients with a beneficial experience to offer increased life vitality.",
+        image: "/assets/hero-athlete.jpg",
+        cta: "Learn More",
+        stats: [
+            { label: "Lifetime Partnership", value: "forever" },
+            { label: "Technology + Science", value: "100%" },
+            { label: "Beneficial Experience", value: "Guaranteed" },
+            { label: "Long Term", value: "Focus" }
+        ]
+    },
+    mission: {
+        label: "Our Mission",
+        title: "THE TIME IS NOW",
+        description: "Mission to bring like-minded people from Strength & Conditioning and Health & Wellness sector together and work towards a common goal of making the nation healthier & stronger.",
+        image: "/assets/pillar-mindset.jpg",
+    },
+    stakeholders: {
+        label: "Stakeholders",
+        title: "WHO WE SERVE",
+        items: [
+            {
+                icon: Users,
+                title: "General Population",
+                description: "Individuals & Groups seeking better health."
+            },
+            {
+                icon: Globe,
+                title: "Institutions",
+                description: "Schools, Colleges, Sports Academies & Corporates."
+            },
+            {
+                icon: Award,
+                title: "Sports Centric",
+                description: "Sportsmen & aspiring sports professionals across all age groups."
+            },
+            {
+                icon: Heart,
+                title: "Medical Needs",
+                description: "Customized rehabilitation programs."
+            }
+        ]
     },
     goals: {
         label: "Our Goals",
         items: [
             {
-                icon: TrendingUp,
-                title: 'Enhance Performance',
-                description: 'Push your limits with scientifically-backed training protocols.',
+                icon: Zap,
+                title: "Enhance Human Performance",
+                description: "Pushing boundaries to achieve peak potential."
             },
             {
-                icon: ShieldCheck,
-                title: 'Reduce Injuries',
-                description: 'Prevent setbacks through proper movement patterns.',
+                icon: Heart,
+                title: "Reduce Injuries",
+                description: "Scientifically designed programs to prevent setbacks."
             },
             {
-                icon: GraduationCap,
-                title: 'Motivate via Education',
-                description: 'Knowledge empowers lasting transformation.',
+                icon: Users,
+                title: "Motivate via Education",
+                description: "Empowering you with knowledge about your body."
             },
             {
-                icon: Target,
-                title: 'Produce Results',
-                description: 'Data-driven progress tracking for real achievements.',
-            },
+                icon: Award,
+                title: "Finally Produce Results",
+                description: "Tangible, measurable improvements."
+            }
         ]
     }
 };

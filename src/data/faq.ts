@@ -1,24 +1,24 @@
 export const faqData = {
-    header: "Common Questions",
-    title: "FAQ'S", // The S will be styled separately in component
-    image: "/assets/coaching-session.jpg",
-    cta: "View More FAQ's",
+    header: "FAQ",
+    title: "COMMON QUESTIONS",
+    image: "/assets/pillar-mindset.jpg",
+    cta: "More Questions",
     items: [
         {
-            question: "What ages do you coach?",
-            answer: "I coach players from age 6 to professional level. Beginners and experienced players are welcome. We tailor our programs to fit the developmental stage of each athlete."
+            question: "What age groups do you train?",
+            answer: "We train athletes of all ages, from youth development programs starting at age 8 to professional athletes."
         },
         {
-            question: "Do you train beginners?",
-            answer: "Absolutely. Everyone starts somewhere. We focus on building a strong foundation of fundamentals for beginners to ensure long-term success."
+            question: "Do I need to be a professional athlete?",
+            answer: "No! While we train pros, our systems are designed to help anyone committed to improving their performance and health."
         },
         {
-            question: "Where are sessions held?",
-            answer: "Sessions are held at our dedicated training facility in the city center, equipped with professional-grade equipment and courts."
+            question: "How do online programs work?",
+            answer: "You receive a customized plan via our app, with video demonstrations and tracking. We have weekly check-ins to monitor progress."
         },
         {
-            question: "How often should players train?",
-            answer: "For optimal progress, we recommend at least 2-3 sessions per week, combined with our prescribed home workouts and recovery routines."
-        },
+            question: "Can you help with injury rehab?",
+            answer: "Yes, our 'Medical Needs' stakeholder focus allows us to design customized rehabilitation programs in conjunction with medical professionals."
+        }
     ]
 };

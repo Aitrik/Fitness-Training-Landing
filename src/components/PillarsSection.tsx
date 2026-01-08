@@ -87,6 +87,20 @@ const PillarsSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Extra Services List */}
+        <div className="max-w-4xl mx-auto mt-20">
+          <div className="bg-card/30 backdrop-blur-md border border-border rounded-2xl p-8 text-center">
+            <h3 className="font-display text-2xl mb-6">ADDITIONAL SERVICES</h3>
+            <div className="flex flex-wrap justify-center gap-4">
+              {pillarsData.services.map((service, idx) => (
+                <div key={idx} className="bg-background px-6 py-3 rounded-full border border-primary/20 text-sm md:text-base text-foreground font-medium shadow-sm hover:border-primary/50 transition-colors">
+                  {service}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

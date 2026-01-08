@@ -1,25 +1,20 @@
 export const heroData = {
     backgroundImage: "/assets/hero-athlete.jpg",
-    tagline: "Strength & Conditioning Consultancy",
+    tagline: "PEAK PERFORMANCE SYSTEM",
     headline: {
         line1: "LET THE",
         line2: "MOVEMENT",
-        line3: "BEGIN."
+        line3: "BEGIN"
     },
-    description: "Evidence-based training combining the perfect balance of",
-    highlightedTerms: [
-        "Mindset",
-        "Nutrition",
-        "Movement",
-        "Recovery"
-    ],
+    description: "We are a multi health culture platform that offers a systematic and healthy lifestyle through long term know-how and professional experience.",
+    highlightedTerms: ["Strength", "Conditioning"],
     cta: {
         primary: "Start Training",
-        secondary: "Watch Our Story"
+        secondary: "Our Philosophy"
     },
     stats: [
-        { value: '24+', label: 'Years Experience' },
-        { value: '6+', label: 'Premium Clubs' },
-        { value: '100+', label: 'Athletes Trained' },
+        { label: "Elite Athletes", value: "500+" },
+        { label: "Medals Won", value: "120+" },
+        { label: "Years Experience", value: "25+" }
     ]
 };

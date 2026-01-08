@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './Logo';
+import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-3 mb-6">
+            <Link to="/" className="flex items-center gap-3 mb-6">
               <img
                 src="/assets/logo.jpeg"
                 alt="SCCS Logo"
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                   Stronger Together
                 </p>
               </div>
-            </a>
+            </Link>
             <p className="text-muted-foreground leading-relaxed mb-6 max-w-sm">
               Strength and Conditioning Consultancy Services.
               Evidence-based training for peak athletic performance.
@@ -74,12 +74,12 @@ const Footer: React.FC = () => {
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -93,8 +93,8 @@ const Footer: React.FC = () => {
             © {currentYear} SCCS. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
+            <Link to="#" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="#" className="hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

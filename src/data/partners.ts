@@ -1,7 +1,6 @@
 export const partnersData = {
     testimonials: {
         label: "Testimonials",
-        title: "WHAT ATHLETES SAY",
         cta: "All Testimonials",
         items: [
             {
@@ -25,15 +24,18 @@ export const partnersData = {
         ]
     },
     partners: {
-        label: "Trusted By The Best",
-        title: "PREMIUM PARTNERS",
+        label: "Associations & Achievements",
         list: [
-            'Cricket Club of India',
-            'Bombay Gymkhana',
-            'Otters Club',
-            'Goregaon Sports Club',
-            'Leaps Gymnastics (JSW)',
-            'National Sports Club of India',
+            "Cricket Club of India",
+            "Bombay Gymkhana",
+            "Otters Club",
+            "Goregaon Sports Club",
+            "Leaps Gymnastics (JSW)",
+            "National Sports Club of India",
+            "Himachal Pradesh Football Association",
+            "Bravehearts Football Skool",
+            "Orange Soccer School (India)",
+            "Rising Tennis Academy (Singapore)"
         ]
     }
 };

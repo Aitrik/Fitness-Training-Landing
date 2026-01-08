@@ -1,54 +1,56 @@
-import { Scan, PenTool, Zap, BarChart3 } from 'lucide-react';
+import { Scan, PenTool, Zap, BarChart3, Settings, ShieldCheck } from 'lucide-react';
 
 export const processData = {
-    services: {
-        label: "Programs & Services",
-        items: [
-            {
-                title: 'One on One Training',
-                description: 'Each session is tailored to the player\'s age, level and goals. We focus on fundamentals, scoring ability, and mental toughness.',
-                image: "/assets/coaching-session.jpg",
-            },
-            {
-                title: 'Small Group Training',
-                description: 'Competitive drills with 2-4 players. Build chemistry, communication, and game-like scenarios.',
-                image: "/assets/pillar-movement.jpg",
-            },
-            {
-                title: 'Team Coaching',
-                description: 'Complete team programs focusing on systems, plays, and collective improvement.',
-                image: "/assets/training-group.jpg",
-            },
+    edge: {
+        label: "Our Edge",
+        title: "WHY CHOOSE SCCS",
+        description: "At SCCS, we pride ourselves at going above and beyond the regular body composition analysis to include categorization free testing protocols, cutting edge technological advancements, and a very strong and well-researched evidence backed science to chart out each program.",
+        features: [
+            "World-Class Program Builder",
+            "Fully Customizable Movement Library",
+            "Athlete & Team Tracking & Analysis",
+            "Proprietary Smart Program Design",
+            "Remote Engagement"
         ]
     },
+    technology: {
+        title: "Technology + Science",
+        description: "We use insights and framework to build your training program. We've combined advanced training tools with an easy-to-use platform to help our trainers, coaches, physical therapists, and athletes achieve better outcomes.",
+    },
     process: {
-        label: "How Training Works",
+        label: "The Process",
         image: "/assets/coaching-session.jpg",
         steps: [
             {
                 icon: Scan,
-                step: 'STEP 1',
-                title: 'Assessment',
-                description: 'We evaluate current skills, habits, and goals.',
+                title: "Assessment",
+                description: "Perform movement activities using world top class technology.",
             },
             {
                 icon: PenTool,
-                step: 'STEP 2',
-                title: 'Personal Plan',
-                description: 'A clear training focus based on what the player needs most.',
+                title: "Insight Generation",
+                description: "We use insights and framework to build your training program.",
+            },
+            {
+                icon: Settings,
+                title: "Program Design",
+                description: "Evaluation based program designed by qualified professionals.",
             },
             {
                 icon: Zap,
-                step: 'STEP 3',
-                title: 'Consistent Training',
-                description: 'Focused sessions with feedback and adjustments.',
+                title: "Execution",
+                description: "Practical execution of the program based on client's status.",
             },
             {
                 icon: BarChart3,
-                step: 'STEP 4',
-                title: 'Ongoing Progress',
-                description: 'We track improvement and refine the plan as the player grows.',
+                title: "Training",
+                description: "Consistent training sessions both online or on-site.",
             },
+            {
+                icon: ShieldCheck,
+                title: "Improvise",
+                description: "Refining the plan based on ongoing progress and feedback.",
+            }
         ]
     }
 };

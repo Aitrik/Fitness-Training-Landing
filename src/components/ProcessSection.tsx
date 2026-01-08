@@ -7,51 +7,61 @@ const ProcessSection: React.FC = () => {
   return (
     <section id="about" className="py-10 md:py-16 bg-background relative overflow-hidden">
       <div className="container px-6 relative z-10">
-        {/* Programs & Services */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <span className="text-primary font-medium tracking-widest uppercase text-sm flex items-center gap-2">
-            <span className="w-8 h-0.5 bg-primary" />
-            {processData.services.label}
-          </span>
-        </motion.div>
+        {/* Our Edge Section */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-32">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-primary font-medium tracking-widest uppercase text-sm flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-primary" />
+              {processData.edge.label}
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl mt-4 mb-6">
+              {processData.edge.title}
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              {processData.edge.description}
+            </p>
 
-        {/* Services Grid with Images */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-32">
-          {processData.services.items.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group cursor-pointer"
-            >
-              <div className="relative overflow-hidden rounded-3xl mb-4">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                {/* Arrow icon */}
-                <div className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="w-5 h-5 text-primary-foreground" />
+            {/* Features List */}
+            <div className="space-y-4">
+              {processData.edge.features.map((feature, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-primary" />
+                  <p className="text-foreground font-medium">{feature}</p>
                 </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right side - Tech & Science Box */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-card border border-border p-8 rounded-3xl relative overflow-hidden group"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors" />
+
+            <h3 className="font-display text-3xl mb-4 relative z-10">{processData.technology.title}</h3>
+            <p className="text-muted-foreground leading-relaxed relative z-10">
+              {processData.technology.description}
+            </p>
+
+            {/* Decorative element */}
+            <div className="mt-8 relative h-40 rounded-xl overflow-hidden border border-border/50">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent" />
+              <div className="grid grid-cols-4 gap-1 p-4 h-full opacity-30">
+                {[...Array(12)].map((_, i) => (
+                  <div key={i} className="bg-primary/20 rounded-sm animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
+                ))}
               </div>
-              <h3 className="font-display text-2xl mb-2 text-foreground group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
         </div>
 
         {/* Training Steps Section */}

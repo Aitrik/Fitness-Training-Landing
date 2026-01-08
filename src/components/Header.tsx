@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
 
@@ -16,10 +17,10 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { label: 'Mission', href: '#mission' },
-    { label: 'Pillars', href: '#pillars' },
-    { label: 'Partners', href: '#partners' },
-    { label: 'About', href: '#about' },
+    { label: 'Mission', href: '/mission' },
+    { label: 'Pillars', href: '/pillars' },
+    { label: 'Partners', href: '/partners' },
+    { label: 'About', href: '/about' },
   ];
 
   return (
@@ -35,7 +36,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <img
               src="/assets/logo.jpeg"
               alt="SCCS Logo"
@@ -47,27 +48,28 @@ const Header: React.FC = () => {
                 Stronger Together
               </p>
             </div>
-          </a>
-          
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 className="font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="default" size="lg">
-              Get Started
-            </Button>
+            <Link to="/about">
+              <Button variant="default" size="lg">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -89,18 +91,20 @@ const Header: React.FC = () => {
           >
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="font-medium text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <Button variant="hero" size="lg" className="mt-2">
-                Get Started
-              </Button>
+              <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button variant="hero" size="lg" className="mt-2 text-center w-full">
+                  Get Started
+                </Button>
+              </Link>
             </nav>
           </motion.div>
         )}
