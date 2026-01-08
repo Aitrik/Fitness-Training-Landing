@@ -1,31 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Brain, Apple, Dumbbell, Moon } from 'lucide-react';
+import pillarMindset from '@/assets/pillar-mindset.jpg';
+import pillarNutrition from '@/assets/pillar-nutrition.jpg';
+import pillarMovement from '@/assets/pillar-movement.jpg';
+import pillarRecovery from '@/assets/pillar-recovery.jpg';
 
 const pillars = [
   {
     icon: Brain,
     title: 'Mindset',
-    description: 'Mental fortitude and focus. Train your mind to push through barriers and achieve the extraordinary.',
-    color: 'from-amber-500/20 to-amber-600/5',
+    subtitle: 'First',
+    description: 'Mental fortitude and focus. Train your mind to push through barriers.',
+    image: pillarMindset,
   },
   {
     icon: Apple,
     title: 'Nutrition',
-    description: 'Fuel your performance with personalized nutrition plans that power recovery and optimize energy.',
-    color: 'from-emerald-500/20 to-emerald-600/5',
+    subtitle: 'First',
+    description: 'Fuel your performance with personalized nutrition plans.',
+    image: pillarNutrition,
   },
   {
     icon: Dumbbell,
     title: 'Movement',
-    description: 'Correct biomechanics and functional strength. Every movement is designed with purpose and precision.',
-    color: 'from-primary/20 to-primary/5',
+    subtitle: 'Perfection',
+    description: 'Correct biomechanics and functional strength training.',
+    image: pillarMovement,
   },
   {
     icon: Moon,
     title: 'Recovery',
-    description: 'Strategic rest and regeneration protocols. Recovery is where transformation happens.',
-    color: 'from-blue-500/20 to-blue-600/5',
+    subtitle: 'System',
+    description: 'Strategic rest and regeneration protocols for transformation.',
+    image: pillarRecovery,
   },
 ];
 
@@ -43,50 +51,72 @@ const PillarsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="flex flex-col md:flex-row md:items-end md:justify-between mb-16"
         >
-          <span className="text-primary font-medium tracking-widest uppercase text-sm">
-            The Foundation
-          </span>
-          <h2 className="font-display text-5xl md:text-7xl mt-4 mb-6">
-            FOUR <span className="text-primary">PILLARS</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <div>
+            <span className="text-primary font-medium tracking-widest uppercase text-sm">
+              Philosophy Points
+            </span>
+            <h2 className="font-display text-5xl md:text-7xl mt-4">
+              FOUR <span className="text-primary">PILLARS</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground text-lg max-w-md mt-4 md:mt-0">
             Our holistic approach integrates four essential elements for complete athletic development.
           </p>
         </motion.div>
 
-        {/* Pillars Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Pillars Grid - 2x2 with images */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {pillars.map((pillar, index) => (
             <motion.div
               key={pillar.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${pillar.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              <div className="relative bg-card border border-border rounded-3xl p-8 md:p-10 hover:border-primary/30 transition-colors duration-300">
-                <div className="flex items-start gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <pillar.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
+              <div className="relative bg-card border border-border rounded-3xl overflow-hidden hover:border-primary/30 transition-all duration-500">
+                <div className="grid md:grid-cols-2">
+                  {/* Image Side */}
+                  <div className="relative h-64 md:h-72 overflow-hidden">
+                    <img
+                      src={pillar.image}
+                      alt={pillar.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80" />
+                    {/* Yellow Arc Accent */}
+                    <div className="absolute bottom-4 left-4">
+                      <svg viewBox="0 0 60 60" className="w-12 h-12">
+                        <path
+                          d="M0 60 A60 60 0 0 1 60 0"
+                          fill="none"
+                          stroke="hsl(var(--primary))"
+                          strokeWidth="3"
+                        />
+                      </svg>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-display text-3xl mb-3 text-foreground">
+
+                  {/* Content Side */}
+                  <div className="p-6 md:p-8 flex flex-col justify-center">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <pillar.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
+                      </div>
+                    </div>
+                    <h3 className="font-display text-3xl mb-1 text-foreground">
                       {pillar.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-primary text-sm font-medium mb-3">
+                      {pillar.subtitle}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {pillar.description}
                     </p>
                   </div>
-                </div>
-                {/* Number */}
-                <div className="absolute top-4 right-6 font-display text-7xl text-border/50 group-hover:text-primary/20 transition-colors">
-                  0{index + 1}
                 </div>
               </div>
             </motion.div>

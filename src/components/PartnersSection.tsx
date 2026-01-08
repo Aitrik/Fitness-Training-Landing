@@ -1,5 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Star, ArrowRight } from 'lucide-react';
+import { Button } from './ui/button';
+import heroAthlete from '@/assets/hero-athlete.jpg';
+import pillarMindset from '@/assets/pillar-mindset.jpg';
+import pillarMovement from '@/assets/pillar-movement.jpg';
 
 const partners = [
   'Cricket Club of India',
@@ -10,9 +15,30 @@ const partners = [
   'National Sports Club of India',
 ];
 
+const testimonials = [
+  {
+    quote: "This program that Sanjay had structured for me was personally a great experience. He understood my weak points well and we worked on them.",
+    name: "Rahul S.",
+    role: "Professional Cricketer",
+    image: heroAthlete,
+  },
+  {
+    quote: "Having seen first-hand the difference access to great coaching can make, the results speak for themselves.",
+    name: "Priya M.",
+    role: "National Athlete",
+    image: pillarMindset,
+  },
+  {
+    quote: "Best single decision I've made in my professional sports career, working with the SCCS team completely transformed my game.",
+    name: "Arjun K.",
+    role: "State Champion",
+    image: pillarMovement,
+  },
+];
+
 const PartnersSection: React.FC = () => {
   return (
-    <section id="partners" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="partners" className="py-24 md:py-32 bg-secondary/20 relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       
@@ -23,61 +49,107 @@ const PartnersSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="flex flex-col md:flex-row md:items-end md:justify-between mb-16"
+        >
+          <div>
+            <span className="text-primary font-medium tracking-widest uppercase text-sm flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-primary" />
+              Testimonials
+            </span>
+            <h2 className="font-display text-4xl md:text-6xl mt-4">
+              WHAT <span className="text-primary">ATHLETES</span> SAY
+            </h2>
+          </div>
+          <Button variant="heroOutline" size="lg" className="mt-4 md:mt-0 group">
+            All Testimonials
+            <ArrowRight className="transition-transform group-hover:translate-x-1" />
+          </Button>
+        </motion.div>
+
+        {/* Testimonials Grid with Images */}
+        <div className="grid md:grid-cols-3 gap-6 mb-24">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="group"
+            >
+              <div className="bg-card border border-border rounded-3xl overflow-hidden hover:border-primary/30 transition-all duration-300">
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                  {/* Quote mark */}
+                  <div className="absolute bottom-2 left-4 text-6xl text-primary/30 font-serif">
+                    "
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-6">
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-foreground leading-relaxed mb-4 text-sm">
+                    {testimonial.quote}
+                  </p>
+                  
+                  <div>
+                    <p className="font-display text-lg text-foreground">{testimonial.name}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Partners Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
           <span className="text-primary font-medium tracking-widest uppercase text-sm">
             Trusted By The Best
           </span>
-          <h2 className="font-display text-5xl md:text-7xl mt-4 mb-6">
+          <h3 className="font-display text-3xl md:text-4xl mt-4">
             PREMIUM <span className="text-outline">PARTNERS</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We work with India's most prestigious sports clubs and academies in Mumbai.
-          </p>
+          </h3>
         </motion.div>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
           {partners.map((partner, index) => (
             <motion.div
               key={partner}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group"
             >
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 text-center hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 h-full flex items-center justify-center">
-                <h3 className="font-display text-lg md:text-xl text-muted-foreground group-hover:text-foreground transition-colors">
+              <div className="bg-card border border-border rounded-xl p-4 text-center hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 h-full flex items-center justify-center min-h-[80px]">
+                <h4 className="font-display text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                   {partner}
-                </h3>
+                </h4>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Testimonial */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-20 max-w-3xl mx-auto text-center"
-        >
-          <div className="relative">
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-8xl text-primary/20 font-serif">
-              "
-            </div>
-            <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed font-light italic pt-8">
-              Having seen first-hand the difference access to great coaching can make, 
-              we want to make that competitive advantage available to every athlete, everywhere.
-            </blockquote>
-            <div className="mt-8">
-              <p className="font-display text-lg text-primary">TEAM SCCS</p>
-              <p className="text-sm text-muted-foreground">Olympic & Professional Coaches</p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
