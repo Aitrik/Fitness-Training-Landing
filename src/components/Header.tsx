@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Logo from './Logo';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
 
@@ -28,17 +27,20 @@ const Header: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-background/90 backdrop-blur-lg border-b border-border'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <Logo size="sm" className="text-primary transition-transform duration-300 group-hover:scale-110" />
+            <img
+              src="/assets/logo.jpeg"
+              alt="SCCS Logo"
+              className="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
             <div className="hidden sm:block">
               <span className="font-display text-2xl tracking-wider text-foreground">SCCS</span>
               <p className="text-[10px] tracking-widest-xl text-muted-foreground uppercase -mt-1">
@@ -46,6 +48,7 @@ const Header: React.FC = () => {
               </p>
             </div>
           </a>
+          
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
@@ -62,7 +65,7 @@ const Header: React.FC = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="hero" size="lg">
+            <Button variant="default" size="lg">
               Get Started
             </Button>
           </div>
@@ -82,7 +85,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 pb-4 border-t border-border pt-4"
+            className="md:hidden mt-4 pb-4 border-t border-border p-6 z-50 bg-background"
           >
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (

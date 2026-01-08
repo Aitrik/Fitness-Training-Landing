@@ -34,7 +34,11 @@ const Footer: React.FC = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-3 mb-6">
-              <Logo size="md" className="text-primary" />
+              <img
+                src="/assets/logo.jpeg"
+                alt="SCCS Logo"
+                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
               <div>
                 <span className="font-display text-3xl tracking-wider text-foreground">SCCS</span>
                 <p className="text-xs tracking-widest text-muted-foreground uppercase">
@@ -43,7 +47,7 @@ const Footer: React.FC = () => {
               </div>
             </a>
             <p className="text-muted-foreground leading-relaxed mb-6 max-w-sm">
-              Strength and Conditioning Consultancy Services. 
+              Strength and Conditioning Consultancy Services.
               Evidence-based training for peak athletic performance.
             </p>
             {/* Social Links */}

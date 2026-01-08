@@ -1,58 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scan, PenTool, Zap, BarChart3, ArrowRight } from 'lucide-react';
-import trainingGroup from '@/assets/training-group.jpg';
-import coachingSession from '@/assets/coaching-session.jpg';
-import pillarMovement from '@/assets/pillar-movement.jpg';
-
-const services = [
-  {
-    title: 'One on One Training',
-    description: 'Each session is tailored to the player\'s age, level and goals. We focus on fundamentals, scoring ability, and mental toughness.',
-    image: coachingSession,
-  },
-  {
-    title: 'Small Group Training',
-    description: 'Competitive drills with 2-4 players. Build chemistry, communication, and game-like scenarios.',
-    image: pillarMovement,
-  },
-  {
-    title: 'Team Coaching',
-    description: 'Complete team programs focusing on systems, plays, and collective improvement.',
-    image: trainingGroup,
-  },
-];
-
-const steps = [
-  {
-    icon: Scan,
-    step: 'STEP 1',
-    title: 'Assessment',
-    description: 'We evaluate the current skill, habits and goals.',
-  },
-  {
-    icon: PenTool,
-    step: 'STEP 2',
-    title: 'Personal Plan',
-    description: 'A clear roadmap based on what the player needs most.',
-  },
-  {
-    icon: Zap,
-    step: 'STEP 3',
-    title: 'Consistent Training',
-    description: 'Focused sessions with feedback and adjustments.',
-  },
-  {
-    icon: BarChart3,
-    step: 'STEP 4',
-    title: 'Progress Program',
-    description: 'We track improvements and refine the plan as the player grows.',
-  },
-];
+import { ArrowRight, Check } from 'lucide-react';
+import { processData } from '@/data/process';
 
 const ProcessSection: React.FC = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="about" className="py-10 md:py-16 bg-background relative overflow-hidden">
       <div className="container px-6 relative z-10">
         {/* Programs & Services */}
         <motion.div
@@ -64,13 +17,13 @@ const ProcessSection: React.FC = () => {
         >
           <span className="text-primary font-medium tracking-widest uppercase text-sm flex items-center gap-2">
             <span className="w-8 h-0.5 bg-primary" />
-            Programs & Services
+            {processData.services.label}
           </span>
         </motion.div>
 
         {/* Services Grid with Images */}
         <div className="grid lg:grid-cols-3 gap-6 mb-32">
-          {services.map((service, index) => (
+          {processData.services.items.map((service, index) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 40 }}
@@ -102,64 +55,76 @@ const ProcessSection: React.FC = () => {
         </div>
 
         {/* Training Steps Section */}
-        <div className="bg-secondary/30 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+        {/* Training Steps Section */}
+        <div className="rounded-3xl p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]">
           {/* Background accent */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-          
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row md:items-end md:justify-between mb-12"
-          >
-            <div>
-              <span className="text-primary font-medium tracking-widest uppercase text-sm flex items-center gap-2">
-                <span className="w-8 h-0.5 bg-primary" />
-                How Training Works
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl mt-4">
-                THE <span className="text-primary">PROCESS</span>
-              </h2>
-            </div>
-          </motion.div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
 
-          {/* Steps */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, index) => (
+          <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            {/* Left Column: Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative h-full min-h-[500px] rounded-2xl overflow-hidden"
+            >
+              <img
+                src={processData.process.image} // Using coachingSession as placeholder for the training image
+                alt="Training Session"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-blue-900/10 mix-blend-multiply" />
+            </motion.div>
+
+            {/* Right Column: Steps */}
+            <div>
               <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative"
+                transition={{ duration: 0.6 }}
+                className="mb-12"
               >
-                {/* Connecting line */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-border -translate-x-1/2" />
-                )}
-                
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <step.icon className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-primary text-xs font-bold tracking-wider">
-                      {step.step}
-                    </span>
-                    <h3 className="font-display text-xl mt-1 mb-2 text-foreground">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
+                <span className="text-primary font-medium tracking-widest uppercase text-sm flex items-center gap-2 mb-4">
+                  <span className="w-8 h-0.5 bg-primary" />
+                  {processData.process.label}
+                </span>
               </motion.div>
-            ))}
+
+              <div className="relative space-y-12 pl-4">
+                {/* Vertical Line */}
+                <div className="absolute left-[27px] top-4 bottom-4 w-0.5 border-l-2 border-dashed border-gray-700" />
+
+                {processData.process.steps.map((step, index) => (
+                  <motion.div
+                    key={step.title}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative flex gap-8 items-start"
+                  >
+                    {/* Circle Icon */}
+                    <div className="relative z-10 flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-1 outline outline-4 outline-[#1e293b]">
+                      <Check className="w-3.5 h-3.5 text-black" />
+                    </div>
+
+                    <div>
+                      <span className="text-gray-400 text-xs font-bold tracking-wider uppercase mb-1 block">
+                        STEP - {index + 1}
+                      </span>
+                      <h3 className="font-display text-xl mb-2 text-white">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

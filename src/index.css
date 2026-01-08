@@ -6,25 +6,30 @@
 
 @layer base {
   :root {
-    /* SCCS Brand Colors - Athletic Premium */
-    --background: 0 0% 5%;
-    --foreground: 0 0% 98%;
+    /* SCCS Brand Colors - Athletic Premium - Blue Theme */
+    --background: 222 47% 11%;
+    /* Slate 900 #0f172a */
+    --foreground: 210 40% 98%;
+    /* Slate 50 #f8fafc */
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 217 33% 17%;
+    /* Slate 800 #1e293b */
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Brand Yellow - Energetic & Dynamic */
+    /* Brand Yellow - Energetic & Dynamic - Kept as is */
     --primary: 45 100% 50%;
     --primary-foreground: 0 0% 5%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 217 33% 17%;
+    /* Slate 800 */
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    /* Slate 400 */
 
     --accent: 45 100% 50%;
     --accent-foreground: 0 0% 5%;
@@ -32,38 +37,39 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
     --ring: 45 100% 50%;
 
     --radius: 0.5rem;
 
     /* Custom SCCS Variables */
     --glow-yellow: 45 100% 50%;
-    --deep-black: 0 0% 3%;
-    --charcoal: 0 0% 10%;
-    --steel: 0 0% 20%;
+    --deep-black: 222 47% 4%;
+    /* Slate 950 */
+    --charcoal: 217 33% 17%;
+    --steel: 215 20% 65%;
   }
 
   .dark {
-    --background: 0 0% 5%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
     --primary: 45 100% 50%;
     --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
     --accent: 45 100% 50%;
     --accent-foreground: 0 0% 5%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
     --ring: 45 100% 50%;
   }
 }
@@ -79,10 +85,16 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background-image: linear-gradient(to bottom right, #0f172a, #000000);
+    /* Dark Blue to Black */
+    background-attachment: fixed;
+    /* Keep gradient fixed during scroll */
+    min-height: 100vh;
   }
 }
 
 @layer components {
+
   /* Text Outline Effect for Hero */
   .text-outline {
     -webkit-text-stroke: 2px hsl(var(--foreground));
@@ -96,20 +108,16 @@
 
   /* Gradient Overlays */
   .gradient-overlay {
-    background: linear-gradient(
-      to right,
-      hsl(var(--background)) 0%,
-      hsl(var(--background) / 0.8) 40%,
-      transparent 100%
-    );
+    background: linear-gradient(to right,
+        hsl(var(--background)) 0%,
+        hsl(var(--background) / 0.8) 40%,
+        transparent 100%);
   }
 
   .gradient-bottom {
-    background: linear-gradient(
-      to top,
-      hsl(var(--background)) 0%,
-      transparent 100%
-    );
+    background: linear-gradient(to top,
+        hsl(var(--background)) 0%,
+        transparent 100%);
   }
 
   /* Yellow Accent Arc */
@@ -131,11 +139,9 @@
   /* Pillar Cards */
   .pillar-card {
     @apply relative overflow-hidden rounded-2xl bg-card p-8 border border-border;
-    background: linear-gradient(
-      145deg,
-      hsl(var(--card)) 0%,
-      hsl(var(--secondary)) 100%
-    );
+    background: linear-gradient(145deg,
+        hsl(var(--card)) 0%,
+        hsl(var(--secondary)) 100%);
   }
 
   .pillar-card::before {
@@ -167,6 +173,7 @@
 }
 
 @layer utilities {
+
   /* Spaced Letter Tracking */
   .tracking-widest-xl {
     letter-spacing: 0.3em;
@@ -179,12 +186,10 @@
 
   /* Animated Gradient Text */
   .gradient-text {
-    background: linear-gradient(
-      90deg,
-      hsl(var(--foreground)) 0%,
-      hsl(var(--primary)) 50%,
-      hsl(var(--foreground)) 100%
-    );
+    background: linear-gradient(90deg,
+        hsl(var(--foreground)) 0%,
+        hsl(var(--primary)) 50%,
+        hsl(var(--foreground)) 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -204,6 +209,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -228,9 +234,12 @@
 
   /* Pulse Glow */
   @keyframes pulseGlow {
-    0%, 100% {
+
+    0%,
+    100% {
       box-shadow: 0 0 0 0 hsl(var(--primary) / 0.4);
     }
+
     50% {
       box-shadow: 0 0 0 20px hsl(var(--primary) / 0);
     }

@@ -2,46 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
-import heroAthlete from '@/assets/hero-athlete.jpg';
-import pillarMindset from '@/assets/pillar-mindset.jpg';
-import pillarMovement from '@/assets/pillar-movement.jpg';
-
-const partners = [
-  'Cricket Club of India',
-  'Bombay Gymkhana',
-  'Otters Club',
-  'Goregaon Sports Club',
-  'Leaps Gymnastics (JSW)',
-  'National Sports Club of India',
-];
-
-const testimonials = [
-  {
-    quote: "This program that Sanjay had structured for me was personally a great experience. He understood my weak points well and we worked on them.",
-    name: "Rahul S.",
-    role: "Professional Cricketer",
-    image: heroAthlete,
-  },
-  {
-    quote: "Having seen first-hand the difference access to great coaching can make, the results speak for themselves.",
-    name: "Priya M.",
-    role: "National Athlete",
-    image: pillarMindset,
-  },
-  {
-    quote: "Best single decision I've made in my professional sports career, working with the SCCS team completely transformed my game.",
-    name: "Arjun K.",
-    role: "State Champion",
-    image: pillarMovement,
-  },
-];
+import { partnersData } from '@/data/partners';
 
 const PartnersSection: React.FC = () => {
   return (
-    <section id="partners" className="py-24 md:py-32 bg-secondary/20 relative overflow-hidden">
+    <section id="partners" className="py-10 md:py-16 bg-secondary/20 relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      
+
       <div className="container px-6 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -54,21 +22,21 @@ const PartnersSection: React.FC = () => {
           <div>
             <span className="text-primary font-medium tracking-widest uppercase text-sm flex items-center gap-2">
               <span className="w-8 h-0.5 bg-primary" />
-              Testimonials
+              {partnersData.testimonials.label}
             </span>
             <h2 className="font-display text-4xl md:text-6xl mt-4">
               WHAT <span className="text-primary">ATHLETES</span> SAY
             </h2>
           </div>
           <Button variant="heroOutline" size="lg" className="mt-4 md:mt-0 group">
-            All Testimonials
+            {partnersData.testimonials.cta}
             <ArrowRight className="transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
 
         {/* Testimonials Grid with Images */}
         <div className="grid md:grid-cols-3 gap-6 mb-24">
-          {testimonials.map((testimonial, index) => (
+          {partnersData.testimonials.items.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
               initial={{ opacity: 0, y: 40 }}
@@ -91,7 +59,7 @@ const PartnersSection: React.FC = () => {
                     "
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-6">
                   {/* Stars */}
@@ -100,11 +68,11 @@ const PartnersSection: React.FC = () => {
                       <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                     ))}
                   </div>
-                  
+
                   <p className="text-foreground leading-relaxed mb-4 text-sm">
                     {testimonial.quote}
                   </p>
-                  
+
                   <div>
                     <p className="font-display text-lg text-foreground">{testimonial.name}</p>
                     <p className="text-sm text-muted-foreground">{testimonial.role}</p>
@@ -124,7 +92,7 @@ const PartnersSection: React.FC = () => {
           className="text-center mb-12"
         >
           <span className="text-primary font-medium tracking-widest uppercase text-sm">
-            Trusted By The Best
+            {partnersData.partners.label}
           </span>
           <h3 className="font-display text-3xl md:text-4xl mt-4">
             PREMIUM <span className="text-outline">PARTNERS</span>
@@ -133,7 +101,7 @@ const PartnersSection: React.FC = () => {
 
         {/* Partners Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
-          {partners.map((partner, index) => (
+          {partnersData.partners.list.map((partner, index) => (
             <motion.div
               key={partner}
               initial={{ opacity: 0, scale: 0.9 }}

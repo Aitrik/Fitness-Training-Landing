@@ -1,45 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Apple, Dumbbell, Moon } from 'lucide-react';
-import pillarMindset from '@/assets/pillar-mindset.jpg';
-import pillarNutrition from '@/assets/pillar-nutrition.jpg';
-import pillarMovement from '@/assets/pillar-movement.jpg';
-import pillarRecovery from '@/assets/pillar-recovery.jpg';
-
-const pillars = [
-  {
-    icon: Brain,
-    title: 'Mindset',
-    subtitle: 'First',
-    description: 'Mental fortitude and focus. Train your mind to push through barriers.',
-    image: pillarMindset,
-  },
-  {
-    icon: Apple,
-    title: 'Nutrition',
-    subtitle: 'First',
-    description: 'Fuel your performance with personalized nutrition plans.',
-    image: pillarNutrition,
-  },
-  {
-    icon: Dumbbell,
-    title: 'Movement',
-    subtitle: 'Perfection',
-    description: 'Correct biomechanics and functional strength training.',
-    image: pillarMovement,
-  },
-  {
-    icon: Moon,
-    title: 'Recovery',
-    subtitle: 'System',
-    description: 'Strategic rest and regeneration protocols for transformation.',
-    image: pillarRecovery,
-  },
-];
+import { pillarsData } from '@/data/pillars';
 
 const PillarsSection: React.FC = () => {
   return (
-    <section id="pillars" className="py-24 md:py-32 bg-secondary/30 relative">
+    <section id="pillars" className="py-10 md:py-16 bg-secondary/30 relative">
       {/* Accent Lines */}
       <div className="absolute top-0 left-0 w-24 h-1 bg-primary" />
       <div className="absolute bottom-0 right-0 w-24 h-1 bg-primary" />
@@ -55,20 +20,20 @@ const PillarsSection: React.FC = () => {
         >
           <div>
             <span className="text-primary font-medium tracking-widest uppercase text-sm">
-              Philosophy Points
+              {pillarsData.header}
             </span>
             <h2 className="font-display text-5xl md:text-7xl mt-4">
               FOUR <span className="text-primary">PILLARS</span>
             </h2>
           </div>
           <p className="text-muted-foreground text-lg max-w-md mt-4 md:mt-0">
-            Our holistic approach integrates four essential elements for complete athletic development.
+            {pillarsData.description}
           </p>
         </motion.div>
 
         {/* Pillars Grid - 2x2 with images */}
         <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {pillars.map((pillar, index) => (
+          {pillarsData.items.map((pillar, index) => (
             <motion.div
               key={pillar.title}
               initial={{ opacity: 0, y: 40 }}
