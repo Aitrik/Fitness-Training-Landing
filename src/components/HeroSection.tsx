@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Button } from './ui/button';
 import { ArrowRight, Play, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,10 +8,13 @@ import { heroData } from '@/data/hero';
 const HeroSection: React.FC = () => {
   const navigate = useNavigate();
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 400]); // Parallax effect
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Full Background Image */}
-      <div className="absolute inset-0 z-0">
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img
           src={heroData.backgroundImage}
           alt="Athlete Training"
@@ -20,7 +23,7 @@ const HeroSection: React.FC = () => {
         {/* Modern Gradient Overlay - Darker on left for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="container relative z-10 px-6 pt-32 pb-20">
@@ -76,17 +79,17 @@ const HeroSection: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link to="/contact">
-            <Button
-              variant="hero"
-              size="xl"
-              className="group text-lg px-8 py-7 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--primary)/0.6)]"
-              onClick={() => navigate('/contact')}
-            >
-              {heroData.cta.primary}
-              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
+              <Button
+                variant="hero"
+                size="xl"
+                className="group text-lg px-8 py-7 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--primary)/0.6)]"
+                onClick={() => navigate('/contact')}
+              >
+                {heroData.cta.primary}
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
             </Link>
-           
+
             <Button
               variant="heroOutline"
               size="xl"
