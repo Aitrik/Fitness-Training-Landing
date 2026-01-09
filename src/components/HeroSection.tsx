@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
 import { ArrowRight, Play, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { heroData } from '@/data/hero';
 
 const HeroSection: React.FC = () => {
@@ -75,6 +75,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
+            <Link to="/contact">
             <Button
               variant="hero"
               size="xl"
@@ -84,6 +85,8 @@ const HeroSection: React.FC = () => {
               {heroData.cta.primary}
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
+            </Link>
+           
             <Button
               variant="heroOutline"
               size="xl"
