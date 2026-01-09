@@ -29,8 +29,8 @@ const Header: React.FC = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-background/90 backdrop-blur-lg border-b border-border'
-          : 'bg-transparent'
+        ? 'bg-background/90 backdrop-blur-lg border-b border-border'
+        : 'bg-transparent'
         }`}
     >
       <div className="container mx-auto px-6 py-4">
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link to="/about">
+            <Link to="/contact">
               <Button variant="default" size="lg">
                 Get Started
               </Button>
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
-              <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button variant="hero" size="lg" className="mt-2 text-center w-full">
                   Get Started
                 </Button>

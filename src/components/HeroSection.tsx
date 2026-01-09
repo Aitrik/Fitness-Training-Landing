@@ -1,10 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight, Play, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { heroData } from '@/data/hero';
 
 const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Full Background Image */}
@@ -72,11 +75,21 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button variant="hero" size="xl" className="group text-lg px-8 py-7 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--primary)/0.6)]">
+            <Button
+              variant="hero"
+              size="xl"
+              className="group text-lg px-8 py-7 shadow-[0_0_30px_-5px_hsl(var(--primary)/0.4)] hover:shadow-[0_0_40px_-5px_hsl(var(--primary)/0.6)]"
+              onClick={() => navigate('/contact')}
+            >
               {heroData.cta.primary}
               <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button variant="heroOutline" size="xl" className="group text-lg px-8 py-7 backdrop-blur-sm">
+            <Button
+              variant="heroOutline"
+              size="xl"
+              className="group text-lg px-8 py-6 backdrop-blur-sm"
+              onClick={() => setIsVideoOpen(true)}
+            >
               <Play className="w-5 h-5 mr-3 fill-current" />
               {heroData.cta.secondary}
             </Button>
@@ -103,6 +116,39 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+            onClick={() => setIsVideoOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative w-full max-w-6xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute top-6 right-6 z-10 p-2 text-white/70 hover:text-white bg-black/50 hover:bg-black/80 rounded-full backdrop-blur-md transition-all border border-white/10"
+              >
+                <X size={24} />
+              </button>
+              <video
+                src="/assets/philosophy.webm"
+                className="w-full h-full object-contain"
+                controls
+                autoPlay
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
