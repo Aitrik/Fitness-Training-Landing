@@ -106,11 +106,11 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="mt-16 pt-8 border-t border-white/10 flex flex-wrap gap-8 md:gap-16"
+            className="mt-16 pt-8 border-t border-white/10 flex  gap-4 md:gap-16"
           >
             {heroData.stats.map((stat) => (
               <div key={stat.label}>
-                <p className="font-display text-3xl md:text-4xl text-white">
+                <p className="font-display text-2xl md:text-4xl text-white">
                   {stat.value}
                 </p>
                 <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">
