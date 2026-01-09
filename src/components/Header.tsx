@@ -17,10 +17,11 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/about' },
     { label: 'Mission', href: '/mission' },
     { label: 'Pillars', href: '/pillars' },
     { label: 'Partners', href: '/partners' },
-    { label: 'About', href: '/about' },
   ];
 
   return (
@@ -56,7 +57,7 @@ const Header: React.FC = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className="font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left"
+                className="font-medium text-foreground hover:text-foreground transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left"
               >
                 {link.label}
               </Link>
